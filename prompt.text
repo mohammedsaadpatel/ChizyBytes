@@ -1,0 +1,93 @@
+Act as a world-class frontend developer, creative director, and award-winning web designer specializing in immersive, scroll-driven websites.
+
+## MY TASK
+Build a visually stunning, fully functional frontend website about:
+
+**TOPIC: [INSERT THE GIVEN TOPIC HERE]**
+
+The website should look like a premium Awwwards-winning interactive experience, with cinematic scroll animations, modern typography, beautiful compositions, and a strong visual identity that perfectly matches the topic.
+
+### 1. CREATIVE DIRECTION
+First, intelligently interpret the topic and create a unique visual concept around it. Do not use a generic template for every topic.
+
+Choose appropriate:
+- Color palette and visual atmosphere.
+- Typography and font hierarchy.
+- Backgrounds, imagery, illustrations, and visual elements.
+- Animation style and transitions.
+- Section layouts and storytelling approach.
+
+The result must feel professionally art-directed, modern, immersive, and memorable.
+
+### 2. HERO SECTION
+Create a powerful, full-screen opening section featuring:
+- A bold, oversized headline related to the topic.
+- A short, compelling subtitle.
+- A prominent call-to-action button.
+- Beautiful background imagery, gradients, layered elements, or abstract visuals.
+- Smooth entrance animations.
+- Subtle parallax movement or animated background elements.
+- A scroll indicator that encourages users to explore.
+
+The first screen must immediately grab attention.
+
+### 3. CINEMATIC SCROLL ANIMATIONS
+Make scrolling the main attraction of the website.
+
+Implement a variety of meaningful animations:
+- Text reveals as sections enter the viewport.
+- Images that slide, scale, or fade into view.
+- Parallax backgrounds moving at different speeds.
+- Sticky storytelling sections with changing text and visuals.
+- Scroll-triggered transitions between sections.
+- Animated counters or statistics where relevant.
+- Horizontal scrolling galleries or timelines where appropriate.
+- Smooth transitions between different visual scenes.
+- Subtle hover interactions on buttons, cards, and navigation elements.
+
+Animations must feel smooth, intentional, and connected to the content. Avoid excessive effects that make the site confusing or slow.
+
+Use GSAP with ScrollTrigger if the environment supports installing dependencies. Otherwise, use CSS animations and the Intersection Observer API. Never sacrifice functionality just to include a library.
+
+### 4. WEBSITE STRUCTURE
+Design a complete experience with:
+1. A minimal, stylish navigation bar.
+2. An immersive hero section.
+3. An introduction that explains the topic.
+4. A visually engaging section highlighting key features, ideas, or benefits.
+5. A creative scroll-driven storytelling section.
+6. An interactive showcase, gallery, timeline, or comparison relevant to the topic.
+7. A strong closing section with a call to action.
+8. A polished footer.
+
+Adapt the structure to the topic instead of forcing irrelevant sections into the design.
+
+### 5. VISUAL QUALITY
+Follow these design principles:
+- Strong visual hierarchy and generous whitespace.
+- Large, expressive typography.
+- Consistent spacing and alignment.
+- Carefully selected imagery.
+- Layered compositions and depth.
+- Sophisticated gradients, shadows, and borders when appropriate.
+- Consistent corner radii and component styling.
+- Beautiful loading and transition states where useful.
+- No generic-looking cards everywhere.
+- No excessive glassmorphism or unnecessary neon effects.
+- No emoji used as a substitute for proper visuals.
+
+Every section must look intentionally designed.
+
+### 6. INTERACTIVITY
+Implement working interactions:
+- Responsive mobile navigation.
+- Smooth scrolling to page sections.
+- Functional buttons and calls to action.
+- Interactive cards or tabs if relevant.
+- Hover and focus states.
+- Scroll progress indicator where appropriate.
+
+Do not create fake buttons or nonfunctional controls.
+
+### 7. RESPONSIVENESS AND PERFORMANCE
+The website must work on desktop, tablets, and mobile phones

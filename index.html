@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chizy Bytes — Fast Food, Faster Vibes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <!-- ========== PRELOADER ========== -->
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">🍔</div>
+            <h2 class="loader-brand">Chizy Bytes</h2>
+            <div class="loader-bar"><div class="loader-fill"></div></div>
+            <p class="loader-text">Cooking up something delicious...</p>
+        </div>
+    </div>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-icon">🍔</span>
+                <span class="logo-text">Chizy<span class="logo-highlight">Bytes</span></span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#menu" class="nav-link">Menu</a></li>
+                <li><a href="#veg-zone" class="nav-link">Veg Zone 🌿</a></li>
+                <li><a href="#specials" class="nav-link">Specials</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="cart-btn" id="cartBtn" onclick="toggleCart()">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO / LANDING ========== -->
+    <section class="hero" id="home">
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+        <div class="floating-foods">
+            <span class="float-food f1">🍟</span>
+            <span class="float-food f2">🍕</span>
+            <span class="float-food f3">🌮</span>
+            <span class="float-food f4">🧀</span>
+            <span class="float-food f5">🥤</span>
+            <span class="float-food f6">🍩</span>
+            <span class="float-food f7">🌶️</span>
+            <span class="float-food f8">🧅</span>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">🔥 #1 Fast Food in Town</div>
+                <h1 class="hero-title">
+                    Taste the <span class="gradient-text">Byte</span><br>
+                    of <span class="gradient-text">Perfection</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Burgers, Pizzas, Shawarmas & more — crafted with love, 
+                    loaded with cheese, and delivered blazing fast! 🚀
+                </p>
+                <div class="hero-cta">
+                    <a href="#menu" class="btn btn-primary btn-glow">
+                        <i class="fas fa-utensils"></i> Explore Menu
+                    </a>
+                    <a href="#specials" class="btn btn-outline">
+                        <i class="fas fa-star"></i> Today's Specials
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-num" data-target="50">0</span>+
+                        <span class="stat-label">Menu Items</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num" data-target="15">0</span>min
+                        <span class="stat-label">Avg. Delivery</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num" data-target="4">0</span>.8★
+                        <span class="stat-label">Rating</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="exploded-burger-wrapper" id="explodedBurgerWrapper">
+                    <!-- Ambient Backdrop Glow -->
+                    <div class="burger-ambient-glow"></div>
+
+                    <!-- Interactive Mode Pills -->
+                    <div class="exploded-controls">
+                        <button class="explode-btn" id="explodeToggleBtn" onclick="toggleExplodeMode()" title="Toggle Exploded View">
+                            <span class="btn-dot"></span>
+                            <span class="btn-text" id="explodeBtnText">💥 Explode View</span>
+                        </button>
+                        <button class="explode-demo-btn" id="explodeDemoBtn" onclick="toggleAutoDemo()" title="Cycle continuous animation">
+                            <i class="fas fa-play" id="demoIcon"></i> <span id="demoText">Auto Demo</span>
+                        </button>
+                    </div>
+
+                    <!-- 3D Burger Stage -->
+                    <div class="burger-3d-stage" id="burger3dStage">
+                        <div class="burger-stack assembled" id="burgerStack">
+
+                            <!-- LAYER 1: TOP BRIOCHE BUN -->
+                            <div class="burger-layer layer-bun-top" data-layer="1">
+                                <svg viewBox="0 0 340 130" class="layer-svg">
+                                    <defs>
+                                        <radialGradient id="topBunGrad" cx="50%" cy="28%" r="65%">
+                                            <stop offset="0%" stop-color="#FED79E"/>
+                                            <stop offset="30%" stop-color="#F39C38"/>
+                                            <stop offset="70%" stop-color="#C35F12"/>
+                                            <stop offset="100%" stop-color="#7E3404"/>
+                                        </radialGradient>
+                                        <linearGradient id="bunRimGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" stop-color="#C35F12"/>
+                                            <stop offset="100%" stop-color="#5E2302"/>
+                                        </linearGradient>
+                                        <filter id="bunShadow" x="-10%" y="-10%" width="130%" height="130%">
+                                            <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="rgba(0,0,0,0.45)"/>
+                                        </filter>
+                                    </defs>
+                                    <!-- Bun Dome -->
+                                    <path d="M 25 110 C 25 35, 95 12, 170 12 C 245 12, 315 35, 315 110 C 315 118, 25 118, 25 110 Z" fill="url(#topBunGrad)" filter="url(#bunShadow)"/>
+                                    <!-- Toasted Under-Rim -->
+                                    <ellipse cx="170" cy="112" rx="145" ry="12" fill="url(#bunRimGrad)"/>
+                                    <ellipse cx="170" cy="111" rx="142" ry="9" fill="#E89138"/>
+                                    <!-- Glossy Bun Highlight -->
+                                    <path d="M 60 52 C 95 24, 150 18, 195 20 C 145 18, 90 28, 60 52 Z" fill="rgba(255,255,255,0.42)" filter="blur(2px)"/>
+                                    <!-- Sesame Seeds -->
+                                    <g class="sesame-seeds">
+                                        <ellipse cx="120" cy="34" rx="4" ry="2.2" transform="rotate(-20 120 34)" fill="#FFF4DE" stroke="#D38A42" stroke-width="0.5"/>
+                                        <ellipse cx="150" cy="25" rx="4" ry="2.2" transform="rotate(15 150 25)" fill="#FFF4DE" stroke="#D38A42" stroke-width="0.5"/>
+                                        <ellipse cx="185" cy="28" rx="4" ry="2.2" transform="rotate(-10 185 28)" fill="#FFF4DE" stroke="#D38A42" stroke-width="0.5"/>
+                                        <ellipse cx="215" cy="38" rx="4" ry="2.2" transform="rotate(30 215 38)" fill="#FFF4DE" stroke="#D38A42" stroke-width="0.5"/>
+                                        <ellipse cx="90" cy="55" rx="4" ry="2.2" transform="rotate(-35 90 55)" fill="#FFF4DE" stroke="#D38A42" stroke-width="0.5"/>
+                                        <ellipse cx="135" cy="50" rx="4" ry="2.2" transform="rotate(5 135 50)" fill="#FFF4DE" stroke="#D38A42" stroke-width="0.5"/>
+                                        <ellipse cx="168" cy="46" rx="4" ry="2.2" transform="rotate(-25 168 46)" fill="#FFF4DE" stroke="#D38A42" stroke-width="0.5"/>
+                                        <ellipse cx="205" cy="52" rx="4" ry="2.2" transform="rotate(20 205 52)" fill="#FFF4DE" stroke="#D38A42" stroke-width="0.5"/>
+                                        <ellipse cx="245" cy="62" rx="4" ry="2.2" transform="rotate(40 245 62)" fill="#FFF4DE" stroke="#D38A42" stroke-width="0.5"/>
+                                        <ellipse cx="70" cy="80" rx="4" ry="2.2" transform="rotate(-45 70 80)" fill="#FFF4DE" stroke="#D38A42" stroke-width="0.5"/>
+                                        <ellipse cx="115" cy="72" rx="4" ry="2.2" transform="rotate(12 115 72)" fill="#FFF4DE" stroke="#D38A42" stroke-width="0.5"/>
+                                        <ellipse cx="152" cy="68" rx="4" ry="2.2" transform="rotate(-15 152 68)" fill="#FFF4DE" stroke="#D38A42" stroke-width="0.5"/>
+                                        <ellipse cx="190" cy="74" rx="4" ry="2.2" transform="rotate(28 190 74)" fill="#FFF4DE" stroke="#D38A42" stroke-width="0.5"/>
+                                        <ellipse cx="230" cy="82" rx="4" ry="2.2" transform="rotate(-8 230 82)" fill="#FFF4DE" stroke="#D38A42" stroke-width="0.5"/>
+                                        <ellipse cx="270" cy="85" rx="4" ry="2.2" transform="rotate(35 270 85)" fill="#FFF4DE" stroke="#D38A42" stroke-width="0.5"/>
+                                        <ellipse cx="140" cy="90" rx="4" ry="2.2" transform="rotate(-5 140 90)" fill="#FFF4DE" stroke="#D38A42" stroke-width="0.5"/>
+                                        <ellipse cx="178" cy="92" rx="4" ry="2.2" transform="rotate(18 178 92)" fill="#FFF4DE" stroke="#D38A42" stroke-width="0.5"/>
+                                        <ellipse cx="212" cy="95" rx="4" ry="2.2" transform="rotate(-22 212 95)" fill="#FFF4DE" stroke="#D38A42" stroke-width="0.5"/>
+                                    </g>
+                                </svg>
+                                <!-- Tag -->
+                                <div class="ingredient-tag tag-right tag-layer-1">
+                                    <span class="tag-line"></span>
+                                    <div class="tag-badge">
+                                        <span class="tag-icon">🍞</span>
+                                        <div class="tag-text">
+                                            <strong>Brioche Sesame Bun</strong>
+                                            <small>Artisan golden dome, butter toasted</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- LAYER 2: CRISP LETTUCE -->
+                            <div class="burger-layer layer-lettuce" data-layer="2">
+                                <svg viewBox="0 0 360 85" class="layer-svg">
+                                    <defs>
+                                        <linearGradient id="lettuceGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" stop-color="#48C774"/>
+                                            <stop offset="60%" stop-color="#239B56"/>
+                                            <stop offset="100%" stop-color="#145A32"/>
+                                        </linearGradient>
+                                        <linearGradient id="lettuceGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" stop-color="#82E0AA"/>
+                                            <stop offset="100%" stop-color="#27AE60"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <!-- Back leaf -->
+                                    <path d="M 15 35 C 40 18, 70 38, 100 25 C 130 15, 160 32, 195 20 C 235 12, 270 30, 305 22 C 330 18, 350 38, 345 52 C 340 68, 300 78, 250 72 C 190 78, 130 75, 70 70 C 25 65, 8 50, 15 35 Z" fill="url(#lettuceGrad1)" opacity="0.95"/>
+                                    <!-- Ruffled front leaf -->
+                                    <path d="M 25 40 C 45 28, 65 48, 90 32 C 115 22, 140 42, 170 28 C 205 18, 230 38, 260 25 C 290 18, 325 35, 335 48 C 325 62, 285 70, 240 66 C 180 72, 120 68, 65 62 C 30 58, 15 48, 25 40 Z" fill="url(#lettuceGrad2)"/>
+                                    <!-- Leaf Ribs & Veins -->
+                                    <path d="M 60 48 Q 110 40 170 36 Q 230 34 300 42" stroke="#A9DFBF" stroke-width="2.5" fill="none" opacity="0.75" stroke-linecap="round"/>
+                                    <path d="M 110 41 Q 135 32 155 33" stroke="#A9DFBF" stroke-width="1.8" fill="none" opacity="0.6"/>
+                                    <path d="M 210 36 Q 235 28 255 30" stroke="#A9DFBF" stroke-width="1.8" fill="none" opacity="0.6"/>
+                                    <circle cx="95" cy="36" r="2.2" fill="rgba(255,255,255,0.7)"/>
+                                    <circle cx="245" cy="32" r="2" fill="rgba(255,255,255,0.7)"/>
+                                </svg>
+                                <!-- Tag -->
+                                <div class="ingredient-tag tag-left tag-layer-2">
+                                    <span class="tag-line"></span>
+                                    <div class="tag-badge">
+                                        <span class="tag-icon">🥬</span>
+                                        <div class="tag-text">
+                                            <strong>Crisp Hydroponic Lettuce</strong>
+                                            <small>Farm-fresh organic crunch, chilled</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- LAYER 3: RIPE TOMATOES -->
+                            <div class="burger-layer layer-tomatoes" data-layer="3">
+                                <svg viewBox="0 0 340 70" class="layer-svg">
+                                    <defs>
+                                        <radialGradient id="tomGrad1" cx="40%" cy="40%" r="60%">
+                                            <stop offset="0%" stop-color="#FF6B6B"/>
+                                            <stop offset="65%" stop-color="#E74C3C"/>
+                                            <stop offset="100%" stop-color="#922B21"/>
+                                        </radialGradient>
+                                        <radialGradient id="tomGrad2" cx="45%" cy="35%" r="60%">
+                                            <stop offset="0%" stop-color="#FF7675"/>
+                                            <stop offset="70%" stop-color="#D63031"/>
+                                            <stop offset="100%" stop-color="#7B1113"/>
+                                        </radialGradient>
+                                    </defs>
+                                    <!-- Left Tomato Slice -->
+                                    <g transform="translate(10, 0)">
+                                        <ellipse cx="105" cy="35" rx="72" ry="24" fill="url(#tomGrad1)"/>
+                                        <ellipse cx="105" cy="34" rx="66" ry="20" fill="#C0392B"/>
+                                        <ellipse cx="80" cy="34" rx="14" ry="7" fill="#78281F"/>
+                                        <circle cx="80" cy="34" r="2.5" fill="#F9E79F"/>
+                                        <ellipse cx="130" cy="34" rx="14" ry="7" fill="#78281F"/>
+                                        <circle cx="130" cy="34" r="2.5" fill="#F9E79F"/>
+                                        <ellipse cx="105" cy="26" rx="12" ry="6" fill="#78281F"/>
+                                        <circle cx="105" cy="26" r="2" fill="#F9E79F"/>
+                                        <ellipse cx="105" cy="42" rx="12" ry="6" fill="#78281F"/>
+                                        <circle cx="105" cy="42" r="2" fill="#F9E79F"/>
+                                        <path d="M 65 26 C 90 18, 130 18, 150 24" stroke="rgba(255,255,255,0.6)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                                    </g>
+                                    <!-- Right Tomato Slice -->
+                                    <g transform="translate(125, 4)">
+                                        <ellipse cx="105" cy="33" rx="72" ry="24" fill="url(#tomGrad2)"/>
+                                        <ellipse cx="105" cy="32" rx="66" ry="20" fill="#B03A2E"/>
+                                        <ellipse cx="82" cy="32" rx="14" ry="7" fill="#641E16"/>
+                                        <circle cx="82" cy="32" r="2.5" fill="#F9E79F"/>
+                                        <ellipse cx="128" cy="32" rx="14" ry="7" fill="#641E16"/>
+                                        <circle cx="128" cy="32" r="2.5" fill="#F9E79F"/>
+                                        <ellipse cx="105" cy="24" rx="12" ry="6" fill="#641E16"/>
+                                        <circle cx="105" cy="24" r="2" fill="#F9E79F"/>
+                                        <ellipse cx="105" cy="40" rx="12" ry="6" fill="#641E16"/>
+                                        <circle cx="105" cy="40" r="2" fill="#F9E79F"/>
+                                        <path d="M 68 24 C 95 18, 132 18, 150 23" stroke="rgba(255,255,255,0.6)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                                    </g>
+                                </svg>
+                                <!-- Tag -->
+                                <div class="ingredient-tag tag-right tag-layer-3">
+                                    <span class="tag-line"></span>
+                                    <div class="tag-badge">
+                                        <span class="tag-icon">🍅</span>
+                                        <div class="tag-text">
+                                            <strong>Vine-Ripened Tomatoes</strong>
+                                            <small>Sweet, juicy & freshly cut rounds</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- LAYER 4: MELTED CHEDDAR CHEESE -->
+                            <div class="burger-layer layer-cheese" data-layer="4">
+                                <svg viewBox="0 0 350 85" class="layer-svg">
+                                    <defs>
+                                        <linearGradient id="cheeseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#FFF176"/>
+                                            <stop offset="30%" stop-color="#FFD54F"/>
+                                            <stop offset="70%" stop-color="#FFB300"/>
+                                            <stop offset="100%" stop-color="#FF8F00"/>
+                                        </linearGradient>
+                                        <filter id="cheeseGlow">
+                                            <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="rgba(255,160,0,0.4)"/>
+                                        </filter>
+                                    </defs>
+                                    <!-- Melted draping cheese sheet -->
+                                    <path d="M 30 25 
+                                             C 50 20, 110 18, 175 18 
+                                             C 240 18, 300 20, 320 25
+                                             C 335 38, 310 65, 295 55
+                                             C 275 42, 255 58, 235 72
+                                             C 220 82, 205 60, 185 52
+                                             C 165 45, 145 68, 125 78
+                                             C 110 85, 95 62, 75 52
+                                             C 55 42, 35 60, 20 45
+                                             C 12 35, 18 28, 30 25 Z" 
+                                          fill="url(#cheeseGrad)" filter="url(#cheeseGlow)"/>
+                                    <!-- Cheese Melt Drips -->
+                                    <circle cx="125" cy="78" r="4.5" fill="#FFB300"/>
+                                    <circle cx="235" cy="72" r="4" fill="#FFA000"/>
+                                    <!-- Melted Gloss Shine -->
+                                    <path d="M 45 28 C 100 22, 240 22, 305 28" stroke="rgba(255,255,255,0.7)" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                    <path d="M 120 55 Q 125 70 125 76" stroke="rgba(255,255,255,0.5)" stroke-width="2" fill="none"/>
+                                    <path d="M 230 50 Q 235 65 235 70" stroke="rgba(255,255,255,0.5)" stroke-width="2" fill="none"/>
+                                </svg>
+                                <!-- Tag -->
+                                <div class="ingredient-tag tag-left tag-layer-4">
+                                    <span class="tag-line"></span>
+                                    <div class="tag-badge">
+                                        <span class="tag-icon">🧀</span>
+                                        <div class="tag-text">
+                                            <strong>Molten American Cheddar</strong>
+                                            <small>Double cream gooey melted blanket</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- LAYER 5: FLAME-GRILLED PATTY -->
+                            <div class="burger-layer layer-patty" data-layer="5">
+                                <svg viewBox="0 0 340 85" class="layer-svg">
+                                    <defs>
+                                        <radialGradient id="pattyGrad" cx="50%" cy="35%" r="60%">
+                                            <stop offset="0%" stop-color="#6E371C"/>
+                                            <stop offset="50%" stop-color="#4E2310"/>
+                                            <stop offset="85%" stop-color="#381608"/>
+                                            <stop offset="100%" stop-color="#230B03"/>
+                                        </radialGradient>
+                                        <linearGradient id="charGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stop-color="#1A0701"/>
+                                            <stop offset="50%" stop-color="#0D0300"/>
+                                            <stop offset="100%" stop-color="#1A0701"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <!-- Patty Thickness -->
+                                    <path d="M 22 45 
+                                             C 20 22, 80 15, 170 15 
+                                             C 260 15, 320 22, 318 45 
+                                             C 316 68, 265 76, 170 76 
+                                             C 75 76, 24 68, 22 45 Z" fill="url(#pattyGrad)"/>
+                                    <ellipse cx="170" cy="40" rx="144" ry="24" fill="#582914"/>
+                                    <!-- Flame Charred Grill Marks -->
+                                    <g stroke="url(#charGrad)" stroke-linecap="round" opacity="0.9">
+                                        <line x1="75" y1="28" x2="115" y2="52" stroke-width="5.5"/>
+                                        <line x1="120" y1="24" x2="165" y2="55" stroke-width="6"/>
+                                        <line x1="170" y1="22" x2="215" y2="55" stroke-width="6"/>
+                                        <line x1="220" y1="24" x2="265" y2="52" stroke-width="5.5"/>
+                                        <line x1="268" y1="30" x2="295" y2="48" stroke-width="4.5"/>
+                                    </g>
+                                    <!-- Seasoning Flecks -->
+                                    <g fill="#FFA726" opacity="0.6">
+                                        <circle cx="100" cy="40" r="1.5"/>
+                                        <circle cx="145" cy="34" r="1.8"/>
+                                        <circle cx="190" cy="38" r="1.6"/>
+                                        <circle cx="235" cy="42" r="1.4"/>
+                                        <circle cx="160" cy="48" r="1.5"/>
+                                    </g>
+                                    <path d="M 50 38 Q 170 24 290 38" stroke="rgba(255,255,255,0.35)" stroke-width="2" fill="none"/>
+                                </svg>
+                                <!-- Tag -->
+                                <div class="ingredient-tag tag-right tag-layer-5">
+                                    <span class="tag-line"></span>
+                                    <div class="tag-badge">
+                                        <span class="tag-icon">🔥</span>
+                                        <div class="tag-text">
+                                            <strong>Flame-Grilled Signature Patty</strong>
+                                            <small>100% Charbroiled prime cut, juicy center</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- LAYER 6: SECRET SAUCE & RED ONIONS -->
+                            <div class="burger-layer layer-sauce" data-layer="6">
+                                <svg viewBox="0 0 340 60" class="layer-svg">
+                                    <defs>
+                                        <linearGradient id="sauceGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stop-color="#FF5722"/>
+                                            <stop offset="50%" stop-color="#FF7043"/>
+                                            <stop offset="100%" stop-color="#E64A19"/>
+                                        </linearGradient>
+                                        <linearGradient id="onionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#C39BD3"/>
+                                            <stop offset="50%" stop-color="#8E44AD"/>
+                                            <stop offset="100%" stop-color="#512E5F"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <!-- Caramelized Red Onion Rings -->
+                                    <g fill="none" stroke="url(#onionGrad)" stroke-width="4.5" opacity="0.9" stroke-linecap="round">
+                                        <ellipse cx="100" cy="30" rx="45" ry="16" transform="rotate(-6 100 30)"/>
+                                        <ellipse cx="230" cy="28" rx="48" ry="17" transform="rotate(8 230 28)"/>
+                                        <ellipse cx="165" cy="32" rx="38" ry="14" transform="rotate(-3 165 32)"/>
+                                    </g>
+                                    <!-- Secret Sauce Swirls & Drips -->
+                                    <path d="M 40 28 Q 70 42 110 32 T 180 34 T 250 30 T 300 35" stroke="url(#sauceGrad)" stroke-width="8" fill="none" stroke-linecap="round"/>
+                                    <circle cx="85" cy="38" r="4.5" fill="#FF5722"/>
+                                    <circle cx="145" cy="38" r="5" fill="#FF7043"/>
+                                    <circle cx="215" cy="36" r="4.5" fill="#E64A19"/>
+                                    <circle cx="275" cy="37" r="4" fill="#FF5722"/>
+                                    <path d="M 45 26 Q 72 38 108 30 T 178 32 T 248 28 T 295 33" stroke="rgba(255,255,255,0.6)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                                </svg>
+                                <!-- Tag -->
+                                <div class="ingredient-tag tag-left tag-layer-6">
+                                    <span class="tag-line"></span>
+                                    <div class="tag-badge">
+                                        <span class="tag-icon">🌶️</span>
+                                        <div class="tag-text">
+                                            <strong>Chizy Byte Secret Sauce</strong>
+                                            <small>Smoky paprika & caramelized onion rings</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- LAYER 7: TOASTED BOTTOM BUN -->
+                            <div class="burger-layer layer-bun-bottom" data-layer="7">
+                                <svg viewBox="0 0 340 85" class="layer-svg">
+                                    <defs>
+                                        <radialGradient id="bottomBunGrad" cx="50%" cy="30%" r="65%">
+                                            <stop offset="0%" stop-color="#FCD59A"/>
+                                            <stop offset="45%" stop-color="#E58E26"/>
+                                            <stop offset="85%" stop-color="#B85D19"/>
+                                            <stop offset="100%" stop-color="#6E3106"/>
+                                        </radialGradient>
+                                        <linearGradient id="toastedTopGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" stop-color="#F8C471"/>
+                                            <stop offset="60%" stop-color="#D37E28"/>
+                                            <stop offset="100%" stop-color="#A04000"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <!-- Bottom Bun Body -->
+                                    <path d="M 32 20 
+                                             C 30 52, 90 74, 170 74 
+                                             C 250 74, 310 52, 308 20 
+                                             C 308 14, 32 14, 32 20 Z" fill="url(#bottomBunGrad)"/>
+                                    <!-- Toasted Flat Rim -->
+                                    <ellipse cx="170" cy="20" rx="138" ry="12" fill="url(#toastedTopGrad)"/>
+                                    <ellipse cx="170" cy="18" rx="132" ry="9" fill="#FAD7A0"/>
+                                    <path d="M 60 55 C 100 68, 240 68, 280 55" stroke="rgba(255,255,255,0.25)" stroke-width="2.5" fill="none"/>
+                                </svg>
+                                <!-- Tag -->
+                                <div class="ingredient-tag tag-right tag-layer-7">
+                                    <span class="tag-line"></span>
+                                    <div class="tag-badge">
+                                        <span class="tag-icon">🍞</span>
+                                        <div class="tag-text">
+                                            <strong>Toasted Butter Base</strong>
+                                            <small>Golden grilled pillow base, locks in flavor</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Exploded Scroll Hint -->
+                    <div class="exploded-hint">
+                        <i class="fas fa-arrows-alt-v"></i>
+                        <span>Scroll down to see the burger split, rotate & assemble back</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow"><i class="fas fa-chevron-down"></i></div>
+        </div>
+    </section>
+
+    <!-- ========== CATEGORY STRIP ========== -->
+    <section class="category-strip" id="categories">
+        <div class="container">
+            <div class="categories-scroll">
+                <button class="cat-chip active" data-category="all" onclick="filterCategory('all', this)">
+                    <span class="cat-icon">🍽️</span> All Items
+                </button>
+                <button class="cat-chip" data-category="burger" onclick="filterCategory('burger', this)">
+                    <span class="cat-icon">🍔</span> Burgers
+                </button>
+                <button class="cat-chip" data-category="pizza" onclick="filterCategory('pizza', this)">
+                    <span class="cat-icon">🍕</span> Pizzas
+                </button>
+                <button class="cat-chip" data-category="shawarma" onclick="filterCategory('shawarma', this)">
+                    <span class="cat-icon">🌯</span> Shawarma
+                </button>
+                <button class="cat-chip" data-category="fries" onclick="filterCategory('fries', this)">
+                    <span class="cat-icon">🍟</span> Fries & Sides
+                </button>
+                <button class="cat-chip" data-category="drinks" onclick="filterCategory('drinks', this)">
+                    <span class="cat-icon">🥤</span> Drinks
+                </button>
+                <button class="cat-chip" data-category="desserts" onclick="filterCategory('desserts', this)">
+                    <span class="cat-icon">🍰</span> Desserts
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== MENU SECTION ========== -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">🔥 Our Menu</span>
+                <h2 class="section-title">What's <span class="gradient-text">Cooking?</span></h2>
+                <p class="section-desc">Pick your cravings, customize your toppings, and enjoy every single byte!</p>
+            </div>
+            <div class="menu-controls">
+                <div class="diet-toggle">
+                    <button class="diet-btn active" data-diet="all" onclick="filterDiet('all', this)">All</button>
+                    <button class="diet-btn" data-diet="veg" onclick="filterDiet('veg', this)">🌿 Veg</button>
+                    <button class="diet-btn" data-diet="nonveg" onclick="filterDiet('nonveg', this)">🍗 Non-Veg</button>
+                </div>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search items..." id="searchInput" oninput="searchItems(this.value)">
+                </div>
+            </div>
+            <div class="menu-grid" id="menuGrid">
+                <!-- Menu items injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== VEG ZONE ========== -->
+    <section class="veg-zone" id="veg-zone">
+        <div class="veg-zone-bg">
+            <div class="leaf leaf-1">🌿</div>
+            <div class="leaf leaf-2">🍃</div>
+            <div class="leaf leaf-3">🌱</div>
+            <div class="leaf leaf-4">🥬</div>
+            <div class="leaf leaf-5">🌿</div>
+        </div>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag veg-tag">🌿 100% Vegetarian</span>
+                <h2 class="section-title">The <span class="veg-gradient">Green Zone</span></h2>
+                <p class="section-desc">Pure veg heaven! Every bite is crafted without any non-veg ingredients. Freshly made, totally delicious.</p>
+            </div>
+            <div class="veg-highlights">
+                <div class="veg-highlight-card">
+                    <span class="vhc-icon">✅</span>
+                    <h4>Separate Kitchen</h4>
+                    <p>Dedicated veg preparation area</p>
+                </div>
+                <div class="veg-highlight-card">
+                    <span class="vhc-icon">🌱</span>
+                    <h4>Fresh Ingredients</h4>
+                    <p>Farm-fresh veggies daily</p>
+                </div>
+                <div class="veg-highlight-card">
+                    <span class="vhc-icon">♻️</span>
+                    <h4>Eco Packaging</h4>
+                    <p>Sustainable & compostable</p>
+                </div>
+            </div>
+            <div class="menu-grid veg-grid" id="vegGrid">
+                <!-- Veg items injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SPECIALS / COMBOS ========== -->
+    <section class="specials-section" id="specials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">⚡ Limited Time</span>
+                <h2 class="section-title">Today's <span class="gradient-text">Specials</span></h2>
+                <p class="section-desc">Grab these exclusive combos before they're gone!</p>
+            </div>
+            <div class="combos-grid" id="combosGrid">
+                <!-- Combos injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-visual">
+                    <div class="about-food-card">
+                        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=800&h=800&fit=crop" alt="Fresh Fast Food at Chizy Bytes" class="about-img">
+                        <div class="about-floating-badge">
+                            <span class="afb-icon">🔥</span>
+                            <span class="afb-text">100% Fresh Daily — Real Quality Taste</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <span class="section-tag">❤️ Our Story</span>
+                    <h2 class="section-title">Born from <span class="gradient-text">Hunger,</span><br>Built with <span class="gradient-text">Love</span></h2>
+                    <p>Chizy Bytes started in 2024 with a simple mission: serve fast food that doesn't compromise on taste or quality. Every burger is flame-grilled, every pizza is stone-baked, and every shawarma is hand-rolled with passion.</p>
+                    <p>We source the freshest ingredients, use authentic spices, and make everything fresh to order. Whether you're a die-hard non-veg lover or a proud vegetarian — we've got your cravings covered!</p>
+                    <div class="about-features">
+                        <div class="about-feat"><i class="fas fa-fire"></i> Flame Grilled</div>
+                        <div class="about-feat"><i class="fas fa-leaf"></i> Fresh Daily</div>
+                        <div class="about-feat"><i class="fas fa-bolt"></i> Quick Service</div>
+                        <div class="about-feat"><i class="fas fa-heart"></i> Made with Love</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3><span class="logo-icon">🍔</span> Chizy<span class="logo-highlight">Bytes</span></h3>
+                    <p>Fast Food, Faster Vibes. Serving happiness one byte at a time across India.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#menu">Full Menu</a>
+                    <a href="#veg-zone">Veg Zone</a>
+                    <a href="#specials">Today's Specials</a>
+                    <a href="#about">About Us</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Help</h4>
+                    <a href="#">Track Order</a>
+                    <a href="#">FAQs</a>
+                    <a href="#">Refund Policy</a>
+                    <a href="#">Contact Us</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-envelope"></i> hello@chizybytes.in</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Chizy Bytes. All rights reserved. Made with ❤️ in India.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== CART SIDEBAR ========== -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-bag"></i> Your Order</h3>
+            <button class="cart-close" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty" id="cartEmpty">
+                <span class="cart-empty-icon">🛒</span>
+                <p>Your cart is empty</p>
+                <span>Add something delicious!</span>
+            </div>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display: none;">
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="cartSubtotal">₹0</span>
+                </div>
+                <div class="summary-row">
+                    <span>GST (5%)</span>
+                    <span id="cartGST">₹0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Delivery</span>
+                    <span id="cartDelivery">₹30</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span id="cartTotal">₹0</span>
+                </div>
+            </div>
+            <button class="btn btn-primary btn-checkout" onclick="checkout()">
+                <i class="fas fa-check-circle"></i> Place Order
+            </button>
+            <button class="btn btn-outline btn-clear" onclick="clearCart()">
+                <i class="fas fa-trash"></i> Clear Cart
+            </button>
+        </div>
+    </div>
+
+    <!-- ========== CUSTOMIZATION MODAL ========== -->
+    <div class="modal-overlay" id="customizeModal">
+        <div class="modal" id="modalContent">
+            <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <div class="modal-food-icon" id="modalFoodIcon">🍔</div>
+                <div class="modal-food-info">
+                    <h3 id="modalFoodName">Item Name</h3>
+                    <span class="modal-food-badge" id="modalFoodBadge">Veg</span>
+                    <p class="modal-base-price">Base Price: <strong id="modalBasePrice">₹0</strong></p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h4><i class="fas fa-ruler"></i> Choose Size</h4>
+                    <div class="size-options" id="sizeOptions">
+                        <!-- Sizes injected by JS -->
+                    </div>
+                </div>
+                <div class="modal-section">
+                    <h4><i class="fas fa-plus-circle"></i> Add Toppings</h4>
+                    <div class="toppings-grid" id="toppingsGrid">
+                        <!-- Toppings injected by JS -->
+                    </div>
+                </div>
+                <div class="modal-section">
+                    <h4><i class="fas fa-minus-circle"></i> Remove Ingredients</h4>
+                    <div class="removables-grid" id="removablesGrid">
+                        <!-- Removables injected by JS -->
+                    </div>
+                </div>
+                <div class="modal-section">
+                    <h4><i class="fas fa-comment"></i> Special Instructions</h4>
+                    <textarea id="specialInstructions" placeholder="e.g., Extra spicy, less salt..."></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="quantity-control">
+                    <button class="qty-btn" onclick="changeModalQty(-1)"><i class="fas fa-minus"></i></button>
+                    <span class="qty-display" id="modalQty">1</span>
+                    <button class="qty-btn" onclick="changeModalQty(1)"><i class="fas fa-plus"></i></button>
+                </div>
+                <button class="btn btn-primary btn-add-cart" onclick="addCustomizedToCart()">
+                    Add to Cart — <span id="modalTotalPrice">₹0</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== ORDER SUCCESS MODAL ========== -->
+    <div class="modal-overlay" id="successModal">
+        <div class="modal success-modal">
+            <div class="success-content">
+                <div class="success-icon">🎉</div>
+                <h2>Order Placed!</h2>
+                <p>Your delicious food is being prepared. Estimated delivery in <strong>15-20 minutes</strong>.</p>
+                <div class="success-order-id">Order #CB<span id="orderId">000000</span></div>
+                <button class="btn btn-primary" onclick="closeSuccessModal()">
+                    <i class="fas fa-thumbs-up"></i> Awesome!
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== TOAST NOTIFICATION ========== -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
